@@ -1,3 +1,7 @@
+output "local_network_gateways_id" {
+  description = "Map of id values across all local_network_gateways, keyed the same as var.local_network_gateways"
+  value       = { for k, v in azurerm_local_network_gateway.local_network_gateways : k => v.id }
+}
 output "local_network_gateways_address_space" {
   description = "Map of address_space values across all local_network_gateways, keyed the same as var.local_network_gateways"
   value       = { for k, v in azurerm_local_network_gateway.local_network_gateways : k => v.address_space }
