@@ -20,7 +20,7 @@ EOT
     location            = string
     name                = string
     resource_group_name = string
-    address_space       = optional(list(string))
+    address_space       = optional(set(string))
     gateway_address     = optional(string)
     gateway_fqdn        = optional(string)
     tags                = optional(map(string))
