@@ -8,7 +8,7 @@ output "local_network_gateways_address_space" {
 }
 output "local_network_gateways_bgp_settings" {
   description = "Map of bgp_settings values across all local_network_gateways, keyed the same as var.local_network_gateways"
-  value       = { for k, v in azurerm_local_network_gateway.local_network_gateways : k => v.bgp_settings if v.bgp_settings != null && length(v.bgp_settings) > 0 }
+  value       = { for k, v in azurerm_local_network_gateway.local_network_gateways : k => one(v.bgp_settings) if v.bgp_settings != null && length(v.bgp_settings) > 0 }
 }
 output "local_network_gateways_gateway_address" {
   description = "Map of gateway_address values across all local_network_gateways, keyed the same as var.local_network_gateways"
